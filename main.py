@@ -52,10 +52,13 @@ def check_site(url1, url2):
         load_time2 = round(end_time2 - start_time2, 3)
         print(f'{url2} load in {load_time2} seconds')
 
+    if not url2 or not url1:
+        print('url not found =>?! https//__??')
+
 
 def handler(event, context):
     websiteurl1 = 'https://facebook.com'
-    websiteurl2 = 'https://google.com'
+    websiteurl2 = 'https://repl.it/languages/python3'
 
     check_site(websiteurl1, websiteurl2)
 
