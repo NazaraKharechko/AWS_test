@@ -4,21 +4,21 @@ from time import time
 import requests
 
 
-def write_metric(value, metric):
-    d = boto3.client('cloudwatch')
-    d.put_metric_data(Namespace='Web Status',
-                      MetricData=[
-                          {
-                              'MetricName': metric,
-                              'Dimensions': [
-                                  {
-                                      'Name': 'Status',
-                                      'Value': 'Page load time',
-                                  },
-                              ],
-                              'Value': value,
-                          },
-                      ])
+# def write_metric(value, metric):
+#     d = boto3.client('cloudwatch')
+#     d.put_metric_data(Namespace='Web Status',
+#                       MetricData=[
+#                           {
+#                               'MetricName': metric,
+#                               'Dimensions': [
+#                                   {
+#                                       'Name': 'Status',
+#                                       'Value': 'Page load time',
+#                                   },
+#                               ],
+#                               'Value': value,
+#                           },
+#                       ])
 
 
 def check_site(url1, url2):
@@ -56,10 +56,8 @@ def check_site(url1, url2):
 def handler(event, context):
     websiteurl1 = 'https://facebook.com'
     websiteurl2 = 'https://google.com'
-    metricname = f'{websiteurl1} Page load'
 
-    r = check_site(websiteurl1, websiteurl2)
-    write_metric = (r, metricname)
+    check_site(websiteurl1, websiteurl2)
 
 
 if __name__ == "__main__":
