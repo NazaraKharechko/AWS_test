@@ -21,8 +21,10 @@ import requests
 #                       ])
 
 
-def check_site(url1, url2):
+def check_site(*args):
     load_time = 0.005
+    url1 = args[0]
+    url2 = args[1]
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print("Socket successfully created")
@@ -53,7 +55,7 @@ def check_site(url1, url2):
         print(f'{url2} load in {load_time2} seconds')
 
     if not url2 or not url1:
-        print('url not found =>?! https//__??')
+        print('\n \n url not found =>?! https//__??')
 
 
 def handler(event, context):
