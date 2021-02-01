@@ -33,7 +33,7 @@ def check_site(*args):
         return 0.005
 
     if url1:
-        print(f"Cheking {url1} Page load time")
+        print(f"Checking {url1} Page load time")
         start_time1 = time()
         response = requests.get(url1)
         print(response)
@@ -44,7 +44,7 @@ def check_site(*args):
         print(f'{url1} load in {load_time1} seconds')
 
     if url2:
-        print(f" \n \n Cheking {url2} Page load time")
+        print(f" \n \n Checking {url2} Page load time")
         start_time2 = time()
         response = requests.get(url2)
         print(response)
@@ -59,8 +59,8 @@ def check_site(*args):
 
 
 def handler(event, context):
-    websiteurl1 = 'https://facebook.com'
-    websiteurl2 = 'https://repl.it/languages/python3'
+    websiteurl1 = input('Ведіть свою 1 url =>')
+    websiteurl2 = input('Ведіть свою 2 url =>')
 
     check_site(websiteurl1, websiteurl2)
 
